@@ -13,8 +13,6 @@
 <body>
     <div class="userHeader">
         <h1>User Information</h1>
-        <a href="/">Home</a>
-        <a href="/add_user"> Add New User</a>
     </div>
     <div class="container">
         <div class="col-md-4">
@@ -24,14 +22,18 @@
                 </div>
                 {% for user in users %}
                 <div class="card-content">
-                    <h2>User Name: <br> {{user['first_name']}} {{user['last_name']}}<small>Email: {{user['email']}}</small></h3>
+                    <h3>User Name:</h3> <br> <h2>{{user['first_name']}} {{user['last_name']}}</h2><small>Email: {{user['email']}}</small></h3>
                     <div class="icon-block">
-                        <h5><small>Created At: {{user['created_at'].strftime('%b-%d-%Y %H:%M%:%S')}}</small></h5>
-                        <h5><small>Updated At: {{user['updated_at'].strftime('%b-%d-%Y %H:%M%:%S')}}</small></h5>
+                        <h6><small>Created On: {{user['created_at'].strftime('%b-%d-%Y %H:%M%:%S')}}</small></h6>
+                        <h6><small>Updated On: {{user['updated_at'].strftime('%b-%d-%Y %H:%M%:%S')}}</small></h6>
                     </div>
                 </div>
                 {% endfor %}
             </div>
+        </div>
+        <div class="navButtons">
+            <h3><a href="/">Home</a></h3>
+            <h3><a href="/add_user"> Add New User</a></h3>
         </div>
     </div>
 </body>

@@ -43,14 +43,19 @@ body {
 
 .userHeader > h1 {
     font-size: 2rem;
-    margin-left: 35px;
+    margin-left: 50px;
     align-items: center;
     justify-content: center;
-    flex: 1;
     width: 300px;
 }
 
-.userHeader > a {
+.navButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.navButtons > h3 {
+  margin-left: 25px;
     margin-right: 150px;
     border: 2px solid rgb(95, 95, 95);
     background-color: #efefef;
@@ -157,4 +162,13 @@ body {
   background-color:#232323;
   color:#fff;
   text-decoration:none;
+}
+
+.card-content > h3 {
+  font-size: 1rem;
+  margin-bottom: -20px;
+}
+
+.card-content > h2 {
+  margin-bottom: 10px;
 }

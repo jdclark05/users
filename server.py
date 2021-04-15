@@ -40,13 +40,6 @@ def delete_user(user_id):
 
 @app.route('/edit_user/<int:user_id>', methods=["GET", "POST"])
 def edit_user(user_id):
-    query = "SELECT * FROM users WHERE id = %(id)s;"
-    data = {
-        'id': user_id
-    }
-    users = connectToMySQL('users').query_db(query, data)
-    return render_template("/edit_user.html", user=users[0])
-
     if request.form:
         query = "UPDATE users SET first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s WHERE id = %(id)s;"
         data = {
@@ -55,11 +48,16 @@ def edit_user(user_id):
             "last_name": request.form['last_name'],
             "email": request.form['email']
         }
-        user_id = connectToMySQL('users').query_db(query, data)
+        user= connectToMySQL('users').query_db(query, data)
         print(user_id)
         return redirect(f"/display_user/{user_id}")
     else:
-        return render_template("/edit_user.html")
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        data = {
+            'id': user_id
+        }
+        users = connectToMySQL('users').query_db(query, data)
+        return render_template("/edit_user.html", user=users[0])
 
 
 @app.route('/display_user/<int:user_id>')
