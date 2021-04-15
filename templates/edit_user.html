@@ -6,8 +6,6 @@
     <title>Edit User</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style_edit.css') }}">
 </head>
 <body>
@@ -17,7 +15,7 @@
         		<div class="panel panel-default">
         			<div class="panel-heading">
 						<h4>EDIT USER</h4>
-						<a class="btn btn-info" href="/" role="button">HOME</a>
+						<a class="btn btn-primary" href="/" role="button">HOME</a>
 			 		</div>
 			 		<div class="panel-body">
 			    		<form action="/edit_user/{{user['id']}}" method="POST" role="form">
@@ -37,7 +35,7 @@
 			    			<div class="form-group">
 			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="{{user['email']}}" value="{{user['email']}}">
 			    			</div>
-			    			<input type="submit" value="Update User" class="btn btn-info btn-block">
+			    			<input type="submit" value="Update User" class="btn btn-primary btn-block">
 			    		</form>
 			    	</div>
 	    		</div>

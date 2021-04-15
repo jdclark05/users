@@ -8,38 +8,40 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style.css') }}">
 </head>
 <body>
-    <div class="heading">
-        <h3>User Profiles</h3>
-    </div>
-    <div>
-        <table class="table-fill">
-            <thead>
-            <tr>
-                <th class="text-left"> User ID </th>
-                <th class="text-left"> Full Name </th>
-                <th class="text-left"> Email </th>
-                <th class="text-left"> Created At </th>
-                <th class="text-left"> Actions </th>
-            </tr>
-            </thead>
-            <tbody class="table-hover">
-            {% for user in all_users %}
-            <tr>
-                <td class="text-left">{{user['id']}}</td>
-                <td class="text-left">{{user['first_name']}} {{user['last_name']}}</td>
-                <td class="text-left">{{user['email']}}</td>
-                <td class="text-left">{{user['created_at'].strftime('%b-%d-%Y %H:%M%:%S')}}</td>
-                <td class="flex">
-                    <a href="/display_user/{{user['id']}}">Show</a> | 
-                    <a href="/edit_user/{{user['id']}}">Edit</a> | 
-                    <a href="delete_user/{{user['id']}}">Delete</a></td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <div>
-       <p class="userLink"><a href="/add_user"> Add a New User</a></p> 
+    <div class="panel">
+        <div class="heading">
+            <h3>User Profiles</h3>
+        </div>
+        <div>
+            <table class="table-fill">
+                <thead>
+                <tr>
+                    <th class="text-left"> User ID </th>
+                    <th class="text-left"> Full Name </th>
+                    <th class="text-left"> Email </th>
+                    <th class="text-left"> Created At </th>
+                    <th class="text-left"> Actions </th>
+                </tr>
+                </thead>
+                <tbody class="table-hover">
+                {% for user in all_users %}
+                <tr>
+                    <td class="text-left">{{user['id']}}</td>
+                    <td class="text-left">{{user['first_name']}} {{user['last_name']}}</td>
+                    <td class="text-left">{{user['email']}}</td>
+                    <td class="text-left">{{user['created_at'].strftime('%b-%d-%Y %H:%M%:%S')}}</td>
+                    <td class="flex">
+                        <a href="/display_user/{{user['id']}}">Show</a> | 
+                        <a href="/edit_user/{{user['id']}}">Edit</a> | 
+                        <a href="delete_user/{{user['id']}}">Delete</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+        <p class="userLink"><a href="/add_user"> Add a New User</a></p> 
+        </div>
     </div>
 </body>
 </html>
