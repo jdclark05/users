@@ -7,7 +7,6 @@ app = Flask(__name__)
 def index():
     query = "SELECT * FROM users;"
     users = connectToMySQL('users').query_db(query)
-    print(users)
     return render_template("index.html",all_users=users)
     
 
@@ -21,7 +20,6 @@ def create_user():
             "email": request.form['email'],
         }
         user_id = connectToMySQL('users').query_db(query, data)
-        print(user_id)
         return redirect(f"/display_user/{user_id}")
     else:
         return render_template("add_user.html")
@@ -49,7 +47,6 @@ def edit_user(user_id):
             "email": request.form['email']
         }
         user= connectToMySQL('users').query_db(query, data)
-        print(user_id)
         return redirect(f"/display_user/{user_id}")
     else:
         query = "SELECT * FROM users WHERE id = %(id)s;"
